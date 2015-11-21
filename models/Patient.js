@@ -10,7 +10,7 @@ var patientSchema = new mongoose.Schema({
   pregnancy_date: { type: String, default: '' },
   child_dob: { type: String, default: '' },
   clinic: { type: String, default: '' },
-  history: [{ type: Schema.Types.Mixed }]
+  history: [{ type: mongoose.Schema.Types.Mixed }]
 });
 
 module.exports = mongoose.model('patient', patientSchema);
