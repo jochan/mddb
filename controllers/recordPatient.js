@@ -13,7 +13,9 @@ exports.addPatient = function(req, res, next){
 		name: req.body.name,
 		phone: req.body.phone,
 		gender: req.body.sex,
-		location: req.body.location
+		location: req.body.location,
+		dob: req.body.dob,
+		pregnancy_date: req.body.pregnancy_date,
 	})
 
 	Patient.findOne({ id: req.body.id }, function(err, existingPatient){
