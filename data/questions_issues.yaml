@@ -1,0 +1,9 @@
+questions:
+  headache:
+    1:
+      text: How is your headache?
+    2:
+      text: Is your headache still hurting?
+  sad:
+    1:
+      text: Are you feeling sad today?

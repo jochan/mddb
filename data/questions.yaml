@@ -1,0 +1,16 @@
+questions:
+  1:
+    - type: normal
+      text: Welcome to Mommy Monitor! How are you feeling today?
+  2:
+    - type: normal
+      text: How are you feeling today?
+  3:
+    - type: normal
+      text: How are you feeling today?
+  4:
+    - type: normal
+      text: How are you feeling today?
+  5:
+    - type: normal
+      text: How are you feeling today?
