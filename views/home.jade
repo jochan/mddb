@@ -15,3 +15,16 @@ block content
       .panel
         .panel-body
           p Patient list here
+  .row
+    .col-sm-3
+      h3 Add new patient
+      form
+        p Patient ID:
+          span
+            input(type="text", name="id")
+        p Name:
+          span
+            input(type="text", name="name")
+        p Date of Birth:
+          input(type="text", name="dob")
+        input(type="submit", value="Submit")
