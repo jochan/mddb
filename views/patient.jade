@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  h2 Patient Information
+  p.lead Name: #{patient.name}
+  p.lead Gender: #{patient.gender}
+  p.lead Location: #{patient.location}
+  p.lead Clinic: #{patient.clinic}
+  p.lead Pregnancy Date: #{patient.pregnancy_date}
+  h2 Data Log History
+  .row
+    .col-sm-12
+      table(class="table")
+        thead
+          th Date Contacted
+          th Response Received
+          th Response Generated
+        tbody
+        for object in responses
+          td Nov 21 2015
+          td #{object.feeling}
+          td "Not to worry, we will follow-up tomorrow, but for now rest and breast-feed often!"
+          tr
+  
+  p.lead Additional Comments
+    textarea(name="description", cols="4", rows="3", class="form-control") 
+  
