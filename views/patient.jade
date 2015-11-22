@@ -17,21 +17,25 @@ block content
           th Messages
         tbody
         for object in responses
-          td Nov 21 2015
           if object.type == "Response"
+            td Nov 21 2015
             td Patient
             if object.duration == ""
               td #{object.raw_data}
             else
               td #{object.feeling} for #{object.duration} days.
           else
-            td Clinic
             if object.type == "Alert"
-              #{object.raw_data}
+              td.alert.alert-danger Nov 21 2015
+              td.alert.alert-danger Clinic	
+              td.alert.alert-danger #{object.raw_data}
             else
+              td Nov 21 2015
+              td Clinic
               td Response: #{object.raw_data}
           tr
   
   p.lead Additional Comments
     textarea(name="description", cols="4", rows="3", class="form-control") 
+  
   
