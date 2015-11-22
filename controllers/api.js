@@ -427,6 +427,8 @@ exports.getTwilio = function(req, res) {
  * Send a text message using Twilio.
  */
 exports.postTwilio = function(req, res, next) {
+  twilio = require('twilio')(secrets.twilio.sid, secrets.twilio.token);
+
   req.assert('number', 'Phone number is required.').notEmpty();
   req.assert('message', 'Message cannot be blank.').notEmpty();
   var errors = req.validationErrors();
@@ -436,7 +438,7 @@ exports.postTwilio = function(req, res, next) {
   }
   var message = {
     to: req.body.number,
-    from: '+13472235148',
+    from: '+17808002389',
     body: req.body.message
   };
   twilio.sendMessage(message, function(err, responseData) {

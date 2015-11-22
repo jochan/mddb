@@ -29,6 +29,7 @@ var homeController = require('./controllers/home');
 var patientController = require('./controllers/patient');
 var userController = require('./controllers/user');
 var apiController = require('./controllers/api');
+var webhookController = require('./controllers/webhook');
 var contactController = require('./controllers/contact');
 var recordPatientController = require('./controllers/recordPatient');
 
@@ -120,6 +121,10 @@ app.get('/account/unlink/:provider', passportConf.isAuthenticated, userControlle
 app.get('/patient/:id', patientController.getPatient);
 
 app.post("/new-patient", recordPatientController.addPatient);
+app.get('/api/twilio', apiController.getTwilio);
+app.post('/api/twilio', apiController.postTwilio);
+
+app.get('/webhook', webhookController.getWebhook);
 
 /**
  * Error Handler.
