@@ -8,10 +8,13 @@
         span.icon-bar
       a.navbar-brand(href='/')
         img(src='/logo.png', alt="Brand", class="pull-left")
+        p#brand Mommy Monitor
     .collapse.navbar-collapse
       ul.nav.navbar-nav
         li(class=title=='Home'?'active':undefined)
           a(href='/') Home
+        li(class=title=='Patients'?'active':undefined)
+          a(href='/patients') Patients
         li(class=title=='Contact'?'active':undefined)
           a(href='/contact') Contact
       ul.nav.navbar-nav.navbar-right
