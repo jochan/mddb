@@ -4,13 +4,21 @@ block content
   h1 MD DB
   p.lead Patient Panel
   hr
-  .row
-    .col-sm-6
-      h2 Alerts
-      .panel.alert.alert-danger
-        p Alerts are here
+  if alerts
+    .row#alerts
+      .col-sm-12
+        h2 Alerts
+        .panel.alert.alert-danger
+          each alert in alerts
+            each history in alert.history
+              p 
+                = alert.patient.name
+                |  is having issues with 
+                = history.issue
+                | .
+
   if patients
-    .row
+    .row#records
       .col-sm-12
         h2 Patient Records
         table.table.table-hover
