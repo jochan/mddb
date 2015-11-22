@@ -27,11 +27,11 @@ block content
         for object in responses
           if object.type == "Response"
             td #{object.createdAt.toDateString()}
-            td Patient
+            td.strongsize Patient
             if object.duration == ""
-              td #{object.raw_data}
+              td.strongsize #{object.raw_data}
             else
-              td #{object.feeling} for #{object.duration} days.
+              td.strongsize #{object.feeling} for #{object.duration} days.
           else
             if object.type == "Alert"
               td.alert.alert-danger #{object.createdAt.toDateString()}
