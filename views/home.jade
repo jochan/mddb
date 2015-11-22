@@ -1,83 +1,11 @@
 extends layout
 
 block content
-  if alerts
-    .row#alerts
-      .col-sm-12
-        h2 Alerts
-        .panel.alert.alert-danger
-          each alert in alerts
-            each history in alert.history
-              p 
-                = alert.patient.name
-                |  is having issues with 
-                = history.issue
-                | .
   .row
-    .container#landing
-      h1 Hello, let's heal some souls!
-      p This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.
-      p
-      a.btn.btn-primary.btn-lg(role='button') Learn more &raquo;
-  if patients
-    .row#records
-      .col-sm-12
-        h2 Patient Records
-        table.table.table-hover
-          thead
-            tr
-              th Patient ID
-              th Name
-              th Sex
-              th Location
-              th Phone
-          tbody
-            each patient in patients
-                tr
-                  td= patient.id
-                  td
-                    a(href='/patient/' + patient.id)= patient.name
-                  td= patient.gender
-                  td= patient.location
-                  td= patient.phone	
-  .row#patient-form
-    .col-sm-10
-      h3 Add a new patient
-      form.form-horizontal(id="new-patient-form", action="/new-patient", method="POST")
-        input(type='hidden', name='_csrf', value=_csrf)
-        .form-group
-          label.col-sm-3.control-label(for='id') Patient ID
-          .col-sm-7
-            input.form-control(type='id', name='id', id='id', placeholder='Patient ID', autofocus)
-        .form-group
-          label.col-sm-3.control-label(for='name') Name
-          .col-sm-7
-            input.form-control(type='text', name='name', id='name', placeholder='Name')
-        .form-group
-          label.col-sm-3.control-label(for='phone') Phone Number
-          .col-sm-7
-            input.form-control(type='text', name='phone', id='phone', placeholder='Phone Number')
-        .form-group
-          label.col-sm-3.control-label(for='sex') Sex
-          .col-sm-7
-            select.form-control(type='text', name='sex', id='sex')
-              option(value="Man") Male 
-              option(value="Woman") Female
-        .form-group
-          label.col-sm-3.control-label(for='location') Location
-          .col-sm-7
-            input.form-control(type='text', name='location', id='location', placeholder='Location')
-        .form-group
-          label.col-sm-3.control-label(for='dob') Date of Birth
-          .col-sm-7
-            input.form-control(type='date', name='dob', id='dob', placeholder='Date of Birth')
-        .form-group
-          label.col-sm-3.control-label(for='pregnancy_date') Date of Pregnancy
-          .col-sm-7
-            input.form-control(type='date', name='pregnancy_date', id='pregnancy_date', placeholder='Date of Pregnancy')
-        .form-group
-          .col-sm-offset-3.col-sm-7
-            button.btn.btn-success(type='submit')
-              i.fa.fa-user-plus
-              | Add Patient
-    
+    .jumbotron
+      .container
+        h1 Hello, let's heal some souls!
+        p
+          | This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.
+        p
+          a.btn.btn-primary.btn-lg(role='button') Learn more &raquo;

@@ -1,0 +1,41 @@
+extends layout
+
+block content
+  if alerts
+    .row#alerts
+      .col-sm-12
+        h2 Alerts
+        .panel.alert.alert-danger
+          each alert in alerts
+            each history in alert.history
+              p
+                = alert.patient.name
+                |  is having issues with&nbsp;
+                = history.issue
+                | .
+  if patients
+    .row#records
+      .col-sm-12
+        h2 Patient Records
+        table.table.table-hover
+          thead
+            tr
+              th Patient ID
+              th Name
+              th Sex
+              th Location
+              th Phone
+          tbody
+            each patient in patients
+                tr
+                  td= patient.id
+                  td
+                    a(href='/patient/' + patient.id)= patient.name
+                  td= patient.gender
+                  td= patient.location
+                  td= patient.phone
+  .row
+    .col-sm-10
+      a(href='/patient/add')
+        button.btn.btn-success(type='submit')
+          | Add Patient

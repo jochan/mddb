@@ -39,6 +39,40 @@ exports.getPatient = function(req, res) {
   });
 };
 
+exports.getPatients = function(req, res, next){
+  Patient.find({}, function(err, patients){
+    if(patients.length > 0){
+
+      var p_alert = [];
+      for(var i = 0; i < patients.length; i++){
+        var h_alert = [];
+        if(patients[i].history){
+          for(var j = 0; j < patients[i].history.length; j++){
+            history = patients[i].history[j];
+            if(history.alerted){
+              h_alert.push(history);
+            }
+          }
+        }
+        if(h_alert.length > 0){
+          p_alert.push({patient: patients[i], history: h_alert});
+        }
+      }
+      if (p_alert.length > 0){
+        return res.render('patients', {title: "Patients", alerts: p_alert, patients: patients});
+      }
+      return res.render('patients', {title: "Home", patients: patients});
+    } else{
+      next();
+    }
+  });
+};
+
+exports.getAddPatient = function(req, res, next){
+  return res.render('addpatient', {title: "Add Patient"});
+};
+
+
 /**
  * GET /patient/:id/notify
  * Patient Records page.
