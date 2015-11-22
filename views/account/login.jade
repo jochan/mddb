@@ -1,9 +1,8 @@
-extends ../layout
+extends ../homelayout
 
 block content
-  .container.landing
-    .page-header
-      h3 Sign in
+  .container
+    h3.paddingTop Sign in
     form.form-horizontal(method='POST')
       input(type='hidden', name='_csrf', value=_csrf)
       .form-group
