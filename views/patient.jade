@@ -7,6 +7,14 @@ block content
   p.lead Location: #{patient.location}
   p.lead Clinic: #{patient.clinic}
   p.lead Pregnancy Date: #{patient.pregnancy_date}
+  br
+  h2 Action
+  form(action='/patient/#{patient.id}/notify', method='post')
+    input(type='hidden', name='_csrf', value=_csrf)
+    button.btn.btn-success(type='submit')
+      | Send SMS Notification
+  br
+  br
   h2 Data Log History
   .row
     .col-sm-12
@@ -18,7 +26,7 @@ block content
         tbody
         for object in responses
           if object.type == "Response"
-            td Nov 21 2015
+            td #{object.createdAt.toDateString()}
             td Patient
             if object.duration == ""
               td #{object.raw_data}
@@ -26,16 +34,14 @@ block content
               td #{object.feeling} for #{object.duration} days.
           else
             if object.type == "Alert"
-              td.alert.alert-danger Nov 21 2015
-              td.alert.alert-danger Clinic	
+              td.alert.alert-danger #{object.createdAt.toDateString()}
+              td.alert.alert-danger Clinic
               td.alert.alert-danger #{object.raw_data}
             else
-              td Nov 21 2015
+              td #{object.createdAt.toDateString()}
               td Clinic
               td Response: #{object.raw_data}
           tr
-  
+
   p.lead Additional Comments
-    textarea(name="description", cols="4", rows="3", class="form-control") 
-  
-  
+    textarea(name="description", cols="4", rows="3", class="form-control")
