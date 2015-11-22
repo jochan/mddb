@@ -130,6 +130,9 @@ app.post('/api/twilio', apiController.postTwilio);
 app.get('/webhook', webhookController.getWebhook);
 
 
+app.locals.moment = require('moment');
+
+
 /**
  * Error Handler.
  */

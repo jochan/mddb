@@ -2,7 +2,7 @@ extends layout
 
 block content
   h2 Patient Information
-  p.lead Name: #{patient.name}
+  p.lead Name: #{patient.name} (#{moment().diff(patient.pregnancy_date, "weeks")} weeks)
   p.lead Gender: #{patient.gender}
   p.lead Phone Number: #{patient.phone}
   p.lead Location: #{patient.location}
@@ -25,6 +25,8 @@ block content
           th Sender
           th Messages
         tbody
+        if responses.length == 0
+          td N/A
         for object in responses
           if object.type == "Response"
             td #{object.createdAt.toDateString()}
