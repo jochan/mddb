@@ -2,10 +2,14 @@ extends layout
 
 block content
   .row
-    .jumbotron
-      .container
-        h1 Hello, let's heal some souls!
-        p
-          | This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.
-        p
-          a.btn.btn-primary.btn-lg(role='button') Learn more &raquo;
+    .col-sm-14
+      .landing
+        .container
+          p.headStyle.paddingTop Welcome to Mommy Monitor Portal.
+          p.mainStyle
+           | Your SMS portal for tracking the health of expecting and new mothers, remotely. 
+          p
+          p.mainStyle
+           | Thank you for keeping our mothers and children healthy. 
+          p
+          a.btn.btn-primary.btn-lg(role='button',href='/login') Login
