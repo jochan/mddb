@@ -74,9 +74,33 @@ font-weight: bold;
  font-weight: bold;	
 }
 
-#landing {
- background-image:grey;
+.landing {
+ background-image:url(landingPage.jpg);
  background-size:cover;
+ background-position:center;
  width:100%;
- height:500px;	
+ height:600px;
+ margin:0px auto;
+ padding:0px auto;
+ opacity:0.8;
+ text-align:center;
 }
+
+.paddingTop{
+padding-top:150px;
+}
+.mainStyle {
+ padding-bottom:10px;
+ text-align:center;
+ font-size: 22px;
+
+ 
+}
+.headStyle {
+ padding-bottom:20px;
+ text-align:center;
+ font-size: 50px;
+ 
+}
+
+
