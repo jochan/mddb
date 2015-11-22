@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 
+
 var patientSchema = new mongoose.Schema({
   id: { type: String, default: '' },
   phone: { type: String, unique: true, lowercase: true },
