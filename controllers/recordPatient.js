@@ -5,7 +5,6 @@
 var Patient = require('../models/Patient');
 
 exports.addPatient = function(req, res, next){
-	console.log(req.body);
 	var errors = req.validationErrors();
 
 	var patient = new Patient({
@@ -25,11 +24,19 @@ exports.addPatient = function(req, res, next){
 		}
 		patient.save(function(err) {
 			if (err) return next(err);
+			
+			res.redirect('/');
 		});
 	})
-	res.redirect('/');
 };
 
-exports.getPatients = function(req, res){
-	
+exports.getPatients = function(req, res, next){
+	Patient.find({}, function(err, patients){
+		if(patients){
+			console.log(patients);
+			res.render('home', {patients: patients});
+		}else{
+			next();
+		}
+	});	
 };

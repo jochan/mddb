@@ -9,12 +9,28 @@ block content
       h2 Alerts
       .panel.alert.alert-danger
         p Alerts are here
-  .row
-    .col-sm-6
-      h2 Patient Records
-      .panel
-        .panel-body
-          p Patient list here
+  if patients
+    .row
+      .col-sm-12
+        h2 Patient Records
+        table.table.table-hover
+          thead
+            tr
+              th Patient ID
+              th Name
+              th Sex
+              th Location
+              th Phone
+          tbody
+            each patient in patients
+                tr
+                  td= patient.id
+                  td
+                    a(href='/patient/' + patient.id)= patient.name
+                  td= patient.gender
+                  td= patient.location
+                  td= patient.phone
+
   .row#patient-form
     .col-sm-10
       h3 Add a new patient
@@ -36,8 +52,8 @@ block content
           label.col-sm-3.control-label(for='sex') Sex
           .col-sm-7
             select.form-control(type='text', name='sex', id='sex')
-              option(value="man") Male 
-              option(value="woman") Woman
+              option(value="Man") Male 
+              option(value="Woman") Woman
         .form-group
           label.col-sm-3.control-label(for='location') Location
           .col-sm-7
