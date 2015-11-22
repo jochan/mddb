@@ -9,7 +9,7 @@ block content
           each alert in alerts
             each history in alert.history
               p
-                = alert.patient.name
+                a(href='/patient/' + alert.patient.id)= alert.patient.name
                 |  is having issues with&nbsp;
                 = history.issue
                 | .
