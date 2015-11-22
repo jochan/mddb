@@ -2,12 +2,19 @@ extends layout
 
 block content
   h2 Patient Information
-  p.lead Name: #{patient.name} (#{moment().diff(patient.pregnancy_date, "weeks")} weeks)
+  p.lead Name: #{patient.name}
+  p.lead Status:&nbsp;
+    if patient.child_dob
+      | New Mother (#{moment().diff(patient.child_dob, "weeks")} weeks after birth)
+    else
+      | Pregnant (#{moment().diff(patient.pregnancy_date, "weeks")} weeks)
   p.lead Gender: #{patient.gender}
   p.lead Phone Number: #{patient.phone}
   p.lead Location: #{patient.location}
   p.lead Date of Birth: #{patient.dob}
   p.lead Pregnancy Date: #{patient.pregnancy_date}
+  if patient.child_dob
+    p.lead Child's Date of Birth: #{patient.child_dob}
   br
   h2 Action
   form(action='/patient/#{patient.id}/notify', method='post')

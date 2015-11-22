@@ -22,7 +22,7 @@ block content
             tr
               th Patient ID
               th Name
-              th Sex
+              th Status
               th Location
               th Phone
           tbody
@@ -31,7 +31,11 @@ block content
                   td= patient.id
                   td
                     a(href='/patient/' + patient.id)= patient.name
-                  td= patient.gender
+                  td
+                    if patient.child_dob
+                      | New Mother (#{moment().diff(patient.child_dob, "weeks")} wks)
+                    else
+                      | Pregnant (#{moment().diff(patient.pregnancy_date, "weeks")} wks)
                   td= patient.location
                   td= patient.phone
   .row

@@ -29,6 +29,7 @@ exports.getPatient = function(req, res) {
 
       Message
         .find({ patient_id: req.params.id })
+        .sort('createdAt')
         .exec(function(err, messages) { //has to be plural for some odd reason.
         res.render('patient', {  //here not down there. like do it once.
           title: 'Patient Record',

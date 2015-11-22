@@ -16,7 +16,7 @@ var secrets = require('../config/secrets');
 
 THANK_YOU_TEMPLATE = "Thank you for your response. Also a friendly reminder that your next appointment is at the Baraka clinic on Nov 27, 2015, in 5 days.";
 NO_RESPONSE_TEMPLATE = "We have not received a response from you. Please contact us if anything urgent happens.";
-URGENT_TEMPLATE = "We will alert the doctor of your condition.";
+URGENT_TEMPLATE = "We will alert the doctor of your condition and follow up shortly.";
 
 
 /**
