@@ -1,9 +1,6 @@
 extends layout
 
 block content
-  h1 MD DB
-  p.lead Patient Panel
-  hr
   if alerts
     .row#alerts
       .col-sm-12
@@ -16,6 +13,14 @@ block content
                 |  is having issues with 
                 = history.issue
                 | .
+  .row
+    .jumbotron
+      .container
+        h1 Hello, let's heal some souls!
+        p
+          | This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.
+        p
+          a.btn.btn-primary.btn-lg(role='button') Learn more &raquo;
 
   if patients
     .row#records
@@ -37,8 +42,7 @@ block content
                     a(href='/patient/' + patient.id)= patient.name
                   td= patient.gender
                   td= patient.location
-                  td= patient.phone
-
+                  td= patient.phone	
   .row#patient-form
     .col-sm-10
       h3 Add a new patient
@@ -51,7 +55,7 @@ block content
         .form-group
           label.col-sm-3.control-label(for='name') Name
           .col-sm-7
-            input.form-control(type='text', name='name', id='name', placeholder='name')
+            input.form-control(type='text', name='name', id='name', placeholder='Name')
         .form-group
           label.col-sm-3.control-label(for='phone') Phone Number
           .col-sm-7
@@ -61,7 +65,7 @@ block content
           .col-sm-7
             select.form-control(type='text', name='sex', id='sex')
               option(value="Man") Male 
-              option(value="Woman") Woman
+              option(value="Woman") Female
         .form-group
           label.col-sm-3.control-label(for='location') Location
           .col-sm-7
@@ -79,3 +83,4 @@ block content
             button.btn.btn-success(type='submit')
               i.fa.fa-user-plus
               | Add Patient
+    
